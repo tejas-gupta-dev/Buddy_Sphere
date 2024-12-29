@@ -1,0 +1,38 @@
+{% extends "index.html" %} 
+{% block title %} signup {% endblock %}
+
+{% block content %}
+<form class="row" method="POST" action="/signup">
+    <div class="col">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input type="email" title="email" name="email" class="form-control" id="email">
+    </div>
+    <div class="col">
+      <label for="inputPassword4" class="form-label">Password</label>
+      <input type="password" title="email" name="password" class="form-control" id="Password4">
+    </div>
+    <div class="col">
+      <label class="form-label">description about you</label>
+      <input type="text" title="des" name="des" class="form-control" id="des">
+    </div>
+    <div class="col">
+      <label for="inputAddress" class="form-label">username</label>
+      <input type="text" class="form-control" id="username" name="username" placeholder="Enter Unique User name">
+    </div>
+    <div class="col">
+      <label for="inputCity" class="form-label">City</label>
+      <input type="text" class="form-control" name="city" id="inputCity">
+    </div>
+    <div class="col">
+      <label for="hobby" class="form-label">hobby</label>
+      <input type="text" class="form-control" name="hobby" id="hobby">
+    </div>
+    <div class="col">
+      <label for="hobby2" class="form-label">hobby2</label>
+      <input type="text" class="form-control" name="hobby2" id="hobby2">
+    </div>
+    <div class="col">
+      <button type="submit" class="button-64">Sign in</button>
+    </div>
+  </form>
+{% endblock %}

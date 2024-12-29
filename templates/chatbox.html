@@ -1,0 +1,28 @@
+{% extends "index.html" %} {% block title %} chatbox {% endblock %}
+
+{% block content %}
+<div class="chatbox" id="chatbox">
+    <span>
+        <h1 class="name"> {{ reciever }}</h1>
+    </span>
+    <span id="messages" class="messages" method="GET" action="/chat/{{ reciever }}">
+        {% for msg in msgget %}
+            {% if  msg.sender_username == current_user.username %}
+                <div class="yes msggetter1"> {{ msg.message }}</div>
+            {% else %}
+                <div class="yes msggetter2">{{ msg.message }}</div>
+            {% endif %}
+        {% endfor %}
+        <!--form class="msginput">
+            <label>MESSAGE</label>
+            <input id="message_input" type="text" name="message" title="message" id="message" placeholder="Type your message here...">
+            <button type="submit" id="send">Send</button>
+        </form-->
+    </span>
+</div>
+<form class="msginput">
+    <label>MESSAGE</label>
+    <input id="message_input" type="text" name="message" title="message" id="message" placeholder="Type your message here..." class="submit">
+    <button type="submit" id="send" class="button-64">Send</button>
+</form>
+{% endblock %}

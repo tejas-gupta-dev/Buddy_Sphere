@@ -1,0 +1,12 @@
+{% extends "index.html" %} {% block title %} profile {% endblock %}
+
+{% block content %}
+<div class="profiles">
+    {% if User.is_authenticated %}
+    <span>{{ User.username }}</span>
+    <span class="des">{{ User.des }}</span>
+    {% else %}
+    <span>"user not exist"</span>
+    {% endif %}
+</div>
+{% endblock %}

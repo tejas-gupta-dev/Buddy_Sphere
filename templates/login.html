@@ -1,0 +1,17 @@
+{% extends "index.html" %} {% block title %} login {% endblock %}
+
+{% block content %}
+<form class="row" method="POST" action="/login">
+    <div class="col">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input type="email" name="email" class="form-control" id="email" title="email">
+    </div>
+    <div class="col">
+      <label for="inputPassword4" class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" id="inputPassword4">
+    </div>
+    <div class="col">
+      <button type="submit" class="button-64">Sign in</button>
+    </div>
+  </form>
+{% endblock %}

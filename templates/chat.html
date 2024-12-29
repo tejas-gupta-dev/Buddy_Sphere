@@ -1,0 +1,17 @@
+{% extends "index.html" %} {% block title %} chat {% endblock %}
+
+{% block content %}
+<div class="peoples element" method="GET">
+    {% for connections in connection %}
+    <span id="cantainer">
+        {% if connections.user_username == current_user.username %}
+        <h1>{{ connections.connected_user_username }}</h1>
+        <a class="button-64" href="{{ url_for('chatbox', reciever = connections.connected_user_username ) }}">chat</a>
+        {% else %}
+        <h1>{{ connections.user_username }}</h1>
+        <a class="button-64" href="{{ url_for('chatbox', reciever = connections.user_username ) }}">chat</a>
+        {% endif %}
+    </span>
+    {% endfor %}
+</div>
+{% endblock %}
