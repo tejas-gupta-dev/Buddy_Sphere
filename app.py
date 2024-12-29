@@ -2,14 +2,15 @@ from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user 
 from sqlalchemy.exc import IntegrityError
+import os
 #from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here'  # Change this to a random secret key
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI','sqlite:///user.db')
 app.config['SQLALCHEMY_BINDS'] = {
-    'db2': 'sqlite:///Connection.db',
-    'db1': 'sqlite:///message.db'
+    'db2': os.getenv('DB2_URI', 'sqlite:///Connection.db'),
+    'db1': os.getenv('DB1_URI', 'sqlite:///message.db')
 }
 db = SQLAlchemy(app)
 login_manager = LoginManager()
@@ -194,4 +195,4 @@ if __name__ == '__main__':
         db.create_all(bind_key= ['db2'])
         db.create_all(bind_key= ['db1'])
         db.create_all()  # Create database tables
-    app.run(debug=True, port=3000)
+    app.run(host='0.0.0.0', debug=True, port=3000)
