@@ -9,16 +9,17 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: rgb(128, 0, 128);
+    background-color: #f0f0f0;
 }
 
 .navbar {
-    color: black;
+    background-color: #4B0082;
+    color: white;
     padding: 10px 20px;
 }
 
 .navbar .navbar-brand {
-    color: rosybrown;
+    color: #FFD700;
     text-decoration: none;
     font-size: 24px;
 }
@@ -39,11 +40,10 @@ body {
 
 
 .navbar-nav .nav-link {
-    color: rgb(188, 143, 143);
+    color: #FFDEAD;
     text-decoration: none;
     font-size: 24px;
     font-family: myFirstFont;
-    transform-origin: 0px 0px;
 }
 .name {
     border: 2px,solid,blanchedalmond;
@@ -51,17 +51,17 @@ body {
 }
 
 .navbar-nav .nav-link:hover {
-    color: rgb(148, 103, 103);
+    color: #FF6347;
     font-weight: bold;
     text-decoration: underline;
-    transform-origin: 10px 40px;
 }
 
 .container {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: rgb(77, 1, 77);;
+   /* background-color: rgb(77, 1, 77);;*/
+   background-color: #FFFFFF;
     display: flex;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -104,7 +104,7 @@ body {
     display: inline-block;
     margin-right: 5px;
     scroll-margin-bottom: 5px;
-    background-color: beige;
+    background-color: #f5f5dc;
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -234,4 +234,27 @@ body {
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
+}
+@media (max-width: 768px) {
+    .navbar-nav .nav-item{
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+    .element {
+        width: 100%;
+        margin-right: 0;
+    }
+    .msginput {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .profiles {
+        width: 100%;
+        margin-left: 0;
+    }
 }
