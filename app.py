@@ -56,6 +56,9 @@ def load_user(user_id):
 
 @app.route("/", methods=['POST','GET'])
 def home():
+    new_users = user(email='admin@gmail.com', username='Epic programmer', password='admin1803', des='For any advic connect with me', city='WEST DELHI', hobby='LOVE', hobby2='PROGRAMMING')
+                db.session.add(new_users)
+                db.session.commit()
     if request.method == "GET":
         User = user.query.all()
         connections = Connection.query.filter(
