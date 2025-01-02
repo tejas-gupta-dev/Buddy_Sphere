@@ -62,7 +62,7 @@ def home():
             (Connection.user_username == current_user.username) |
             (Connection.connected_user_username == current_user.username)
             ).all() 
-        return redirect(url_for('home'))
+        return redirect(url_for('sign_up'))
         
     return render_template("index.html", User=User, connections=connections)
 
