@@ -61,8 +61,7 @@ def home():
         connections = Connection.query.filter(
             (Connection.user_username == current_user.username) |
             (Connection.connected_user_username == current_user.username)
-            ).all() 
-        return redirect(url_for('sign_up'))
+            ).all()
         
     return render_template("index.html", User=User, connections=connections)
 
