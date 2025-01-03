@@ -54,6 +54,10 @@ class message(db.Model):
 def load_user(user_id):
     return user.query.get(user_id)
 
+@app.route("/")
+def mainpage():
+    return render_template("index.html")
+
 @app.route("/", methods=['POST','GET'])
 def home():
     if request.method == "GET":
