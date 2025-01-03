@@ -63,7 +63,7 @@ def home():
             (Connection.connected_user_username == current_user.username)
             ).all()
         
-    return render_template("index.html", User=User, connections=connections)
+    return render_template("home.html", User=User, connections=connections)
 
 
 @app.route("/signup", methods=['POST','GET'])
