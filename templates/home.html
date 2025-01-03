@@ -1,5 +1,18 @@
 {% extends "index.html" %} {% block title %} homepage {% endblock %}
 
 {% block content %}
-
+<div class="elements" method="GET">
+  {% for i in User %}
+  <span class="element check">
+  <h1 id="connuser">{{ i.username }}</h1>
+  <h2>{{ i.hobby }}</h2>
+  {% if connections|selectattr('connected_user_username', 'equalto', i.username)|list|length > 0 or connections|selectattr('user_username', 'equalto', i.username)|list|length > 0 %}
+  <a class="button-64" href="{{ url_for('chatbox', reciever = i.username) }}">chat</a>
+  {% else %}
+  <a class="button-64"  href="{{ url_for('connected', connected_user = i.username) }}">connect</a>
+  {% endif %}
+          <!--button type="submit" class="connect" id="connect" onclick = connect ({{ i.username }})>connect</button-->
+  </span>
+  {% endfor %}
+</div>
 {% endblock %}
